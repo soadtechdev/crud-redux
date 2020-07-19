@@ -1,6 +1,39 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { editarProductoAction } from "../actions/productoActions";
+import { useHistory } from "react-router-dom";
 
 const EditarProducto = () => {
+  //state local
+  const [producto, setProducto] = useState({
+    nombre: "",
+    price: "",
+  });
+  const dispatch = useDispatch();
+  const history = useHistory();
+
+  const productoEditar = useSelector((state) => state.productos.productoEditar);
+
+  useEffect(() => {
+    setProducto(productoEditar);
+  }, [productoEditar]);
+
+  const onChangeFormulario = (e) => {
+    setProducto({
+      ...producto,
+      [e.target.value]: e.target.value,
+    });
+  };
+
+  const { nombre, precio } = productoEditar;
+
+  const submitEditarProducto = (e) => {
+    e.preventDefault();
+
+    dispatch(editarProductoAction(producto));
+    history.push("/");
+  };
+
   return (
     <div className="row justify-content-center">
       <div className="col-md-8">
@@ -9,7 +42,7 @@ const EditarProducto = () => {
             <h2 className="text-center mb-4 font-weight-bold">
               Editar Producto
             </h2>
-            <form>
+            <form onSubmit={submitEditarProducto}>
               <div className="form-group">
                 <label htmlFor="Nombre Producto"></label>
                 <input
@@ -17,6 +50,8 @@ const EditarProducto = () => {
                   className="form-control"
                   placeholder="Nombre Producto"
                   name="nombre"
+                  value={nombre}
+                  onChange={onChangeFormulario}
                 />
               </div>
               <div className="form-group">
@@ -26,6 +61,8 @@ const EditarProducto = () => {
                   className="form-control"
                   placeholder="precio Producto"
                   name="precio"
+                  value={precio}
+                  onChange={onChangeFormulario}
                 />
               </div>
               <input
