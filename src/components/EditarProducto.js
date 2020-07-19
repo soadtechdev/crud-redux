@@ -7,7 +7,7 @@ const EditarProducto = () => {
   //state local
   const [producto, setProducto] = useState({
     nombre: "",
-    price: "",
+    precio: "",
   });
   const dispatch = useDispatch();
   const history = useHistory();
@@ -21,7 +21,7 @@ const EditarProducto = () => {
   const onChangeFormulario = (e) => {
     setProducto({
       ...producto,
-      [e.target.value]: e.target.value,
+      [e.target.name]: e.target.value,
     });
   };
 
@@ -50,18 +50,18 @@ const EditarProducto = () => {
                   className="form-control"
                   placeholder="Nombre Producto"
                   name="nombre"
-                  value={nombre}
+                  value={producto.nombre}
                   onChange={onChangeFormulario}
                 />
               </div>
               <div className="form-group">
                 <label htmlFor="Precio Producto"></label>
                 <input
-                  type="text"
+                  type="number"
                   className="form-control"
                   placeholder="precio Producto"
                   name="precio"
-                  value={precio}
+                  value={producto.precio}
                   onChange={onChangeFormulario}
                 />
               </div>

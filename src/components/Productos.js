@@ -11,6 +11,7 @@ const Productos = () => {
     //consultar la api
     const cargarProductos = () => dispatch(obtenerProductosAction());
     cargarProductos();
+    //eslint-disable-next-line
   }, []);
 
   //obtener el state
@@ -42,6 +43,5 @@ const Productos = () => {
     </>
   );
 };
-
 
 export default Productos;

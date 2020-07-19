@@ -1,18 +1,8 @@
 {
   "productos": [
     {
-      "id": 1,
-      "nombre": "Jugo de Zanahoria",
-      "precio": "31111"
-    },
-    {
-      "id": 2,
       "nombre": "Jugo de Naranja",
-      "precio": "1"
-    },
-    {
-      "nombre": "Jugo de Naranja",
-      "precio": "300",
+      "precio": "500",
       "id": 3
     },
     {
@@ -26,14 +16,14 @@
       "id": 5
     },
     {
-      "nombre": "asdasd",
-      "precio": 32,
-      "id": 6
-    },
-    {
       "nombre": "juguito",
       "precio": 123123,
       "id": 7
+    },
+    {
+      "nombre": "tomate",
+      "precio": 3300,
+      "id": 8
     }
   ]
 }
